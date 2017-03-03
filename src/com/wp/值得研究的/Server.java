@@ -74,7 +74,7 @@ public class Server {
         frame = new JFrame("服务器");
         // 更改JFrame的图标：
         //frame.setIconImage(Toolkit.getDefaultToolkit().createImage(Client.class.getResource("qq.png")));
-        frame.setIconImage(Toolkit.getDefaultToolkit().createImage(Server.class.getResource("1.jpg")));
+        frame.setIconImage(Toolkit.getDefaultToolkit().createImage(Server.class.getResource("test.jpg")));
         contentArea = new JTextArea();
         contentArea.setEditable(false);
         contentArea.setForeground(Color.blue);
