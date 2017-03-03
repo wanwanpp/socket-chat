@@ -1,4 +1,4 @@
-package com.wp.webserver;
+package com.wp.webserver.httpServer;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -77,7 +77,7 @@ public class SimpleHttpServer implements Runnable {
                         System.out.println("请求的类型是: " + method);
                         // GIF 图片就读取一个真实的图片数据并返回给客户端
                         if (resource.endsWith(".gif")) {
-                            fileService("F:\\IDEA\\socket_chat\\src\\com\\wp\\webserver\\abc.gif", client);
+                            fileService("F:\\IDEA\\socket_chat\\src\\com\\wp\\webserver\\httpServer\\abc.gif", client);
                             closeSocket(client);
                             continue;
                         }

@@ -1,4 +1,4 @@
-package com.wp.webserver;
+package com.wp.webserver.singleThread;
 
 import java.io.IOException;
 import java.io.OutputStream;
