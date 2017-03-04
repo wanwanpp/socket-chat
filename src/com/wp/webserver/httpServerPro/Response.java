@@ -7,7 +7,8 @@ import java.io.*;
  */
 public class Response {
 
-    public static String WEB_ROOT = "F:\\IDEA\\socket_chat\\src\\com\\wp\\webserver\\httpServerPro";
+//    public static String WEB_ROOT = "F:\\IDEA\\socket_chat\\src\\com\\wp\\webserver\\httpServerPro";
+    public static final String WEB_ROOT=System.getProperty("user.dir")+File.separator+"staticResource";
     private static final int BUFFER_SIZE = 1024;
     private Request request;
     private OutputStream out;
@@ -15,6 +16,7 @@ public class Response {
 
     public Response(OutputStream out) {
         this.out = out;
+        System.out.println(WEB_ROOT);
     }
 
     public void setRequest(Request request) {

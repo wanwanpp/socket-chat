@@ -16,9 +16,11 @@ public class HttpServer {
         server.run();
     }
 
+    boolean shutdown = false;
 
     public static int port = 8080;
-    public void run(){
+
+    public void run() {
         ServerSocket serverSocket = null;
         try {
             serverSocket = new ServerSocket(port);
@@ -27,25 +29,29 @@ public class HttpServer {
             System.exit(1);
         }
 
-        while (true){
+        while (!shutdown) {
             Socket socket = null;
             InputStream in = null;
             OutputStream out = null;
             try {
                 socket = serverSocket.accept();
                 in = socket.getInputStream();
-                out=socket.getOutputStream();
+                out = socket.getOutputStream();
 
                 Request request = new Request(in);
                 request.parse();
+                String uri = request.getUri();
+                if ("/shutdown".equals(uri)){
+                    shutdown=true;
+                }
                 Response response = new Response(out);
                 response.setRequest(request);
                 response.sendStaticResource();
-
                 socket.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+        System.out.println("正常退出");
     }
 }
